@@ -10,7 +10,7 @@ function getPlayerChoice() {
 	return prompt();
 }
 
-function playGame() {
+function playRound() {
     let comp = getComputerChoice();
     let player = getPlayerChoice();
 
