@@ -18,36 +18,61 @@ function playRound() {
         case 'Rock':
 		if (comp == choices[0]) {
     			console.log("It's a tie!");
-    			break;
-		} else if (comp == choices[1]) {
+    			return 'tie';
+    		} else if (comp == choices[1]) {
     			console.log("Sorry, Paper beats Rock.");
-    			break;
-		} else {
+    			return 'loss';
+    		} else {
     			console.log("Nice! Rock beats Scissors");
-    			break;
-		}
+    			return 'win';
+    		}
 	case 'Paper':
 		if (comp == choices[0]) {
     			console.log("Nice! Paper beats rock");
-    			break;
-		} else if (comp == choices[1]) {
+    			return 'win';
+    		} else if (comp == choices[1]) {
     			console.log("It's a tie!");
-    			break;
-		} else {
+    			return 'tie';
+    		} else {
     			console.log("Sorry, Scissors beats paper");
-    			break;
-		}
+    			return 'loss';
+    		}
 	case 'Scissors':
 		if (comp == choices[0]) {
     			console.log("Sorry, Rock beats Scissors");
-    			break;
-		} else if (comp == choices[1]) {
+    			return 'loss';
+    		} else if (comp == choices[1]) {
     			console.log("Nice! Scissors beats Paper");
-    			break;
-		} else {
+    			return 'win';
+    		} else {
     			console.log("It's a tie!");
-    			break;
-		}
+    			return 'tie';
+    		}
     }
     return;
+}
+
+function playGame() {
+    let win = 0;
+    let loss = 0;
+
+    while ((win + loss) < 5) {
+        result = playRound();
+        if (result == 'win') {
+            ++win;
+            console.log(`Wins: ${win}, Losses: ${loss}`);
+        } else if (result == 'loss') {
+            ++loss;
+            console.log(`Wins: ${win}, Losses: ${loss}`);
+        } else {
+            console.log(`Wins: ${win}, Losses: ${loss}`);
+            continue;
+        }
+    }
+
+    if (win > loss) {
+        console.log("You win!");
+    } else {
+        console.log("You lost!");
+    }
 }
