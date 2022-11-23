@@ -2,6 +2,13 @@ console.log("Hello World");
 
 const choices = ['Rock', 'Paper', 'Scissors'];
 
+const buttons = document.querySelectorAll('button');
+buttons.forEach((btn)  => {
+  btn.addEventListener('click', () => {
+    playRound(btn.id);
+  });
+});
+
 function getComputerChoice() {
 	return choices[Math.floor(Math.random() * choices.length)];
 }
@@ -10,9 +17,8 @@ function getPlayerChoice() {
 	return prompt();
 }
 
-function playRound() {
+function playRound(player) {
     let comp = getComputerChoice();
-    let player = getPlayerChoice();
 
     switch (player) {
         case 'Rock':
